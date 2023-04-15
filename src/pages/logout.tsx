@@ -25,9 +25,9 @@ const Logout: NextPage = () => {
     toast.success('You have been logged out successfully', {
       toastId: 'logout',
     });
+    router.push('/');
   }, []);
 
-  router.push('/');
   return null;
 };
 
