@@ -1,5 +1,13 @@
+import CaseArea from "./CaseArea";
+import CaseTimeline from "./CaseTimeline";
+
 const CaseDetail: React.FC = () => {
-  return <div className="py-12 bg-white rounded-2xl"></div>;
+  return (
+    <div className="flex">
+      <CaseArea />
+      <CaseTimeline />
+    </div>
+  );
 };
 
 export default CaseDetail;

@@ -18,7 +18,7 @@ const Section5: React.FC<ComponentProps<'article'>> = ({ className }) => {
     },
     {
       name: 'Philip',
-      role: 'Backend Developer & Project Manager',
+      role: 'Software Engineer & Project Manager',
       message: '',
       image: '/assets/landing/profiles/philip.jpg',
     },

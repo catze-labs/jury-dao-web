@@ -7,7 +7,7 @@ const CaseSummary: NextPage = () => {
   return (
     <div className="basis-64 bg-primary-200 rounded-xl flex gap-5 justify-center items-center lg:flex-row lg:py-0 flex-col py-5">
       {/* Log out */}
-      {/* <div className="w-[270px] h-[111px] p-[10px] flex flex-col gap-[10px] items-center justify-between">
+      <div className="w-[270px] h-[111px] p-[10px] flex flex-col gap-[10px] items-center justify-between">
         <span className="text-[#F5F5F5] text-sm">Have an JURY DAO account?</span>
         <div>
           <Button
@@ -30,9 +30,9 @@ const CaseSummary: NextPage = () => {
             Sign up with wallet
           </Button>
         </div>
-      </div> */}
+      </div>
       {/* Log in */}
-      <div className="w-[270px] flex flex-col p-[10px] gap-[10px] text-center">
+      {/* <div className="w-[270px] flex flex-col p-[10px] gap-[10px] text-center">
         <span className="text-[#F5F5F5] text-sm">Your Active Cases</span>
         <div className="w-[250px] flex py-3 gap-[10px] justify-between">
           <div className="flex flex-col text-center">
@@ -53,7 +53,7 @@ const CaseSummary: NextPage = () => {
           </Button>
         </div>
       </div>
-      <div className="border border-[#006AE5] w-[179px] rotate-90 flex-grow-0" />
+      <div className="border border-[#006AE5] lg:w-[1px] lg:h-[179px] w-[200px] h-[1px] flex-grow-0" />
       <div className="w-[270px] flex flex-col p-[10px] gap-[10px] text-center">
         <span className="text-[#F5F5F5] text-sm">Case Outcome</span>
         <div className="w-[250px] flex py-3 gap-[10px] justify-between">
@@ -74,7 +74,7 @@ const CaseSummary: NextPage = () => {
             Prosecute
           </Button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -16,9 +16,9 @@ const JuryDetailPage: NextPage = () => {
         <article>
           <VoteDetail />
         </article>
-        <article>
+        {/* <article>
           <Audience />
-        </article>
+        </article> */}
       </div>
     </Layout>
   );
