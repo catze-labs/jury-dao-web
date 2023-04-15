@@ -25,7 +25,8 @@ const Input: React.FC<InputProps> = ({
         className={clsx([
           'placeholder-[#D9D9D9] px-5 py-2.5 rounded-[16px] bg-[#F5F5F5]',
           variant === 'comment' && 'w-full h-10 border border-[#4D94E7]',
-          variant === 'form' && 'lg:min-w-[412px] w-[250px] h-[55px]'
+          variant === 'form' && 'lg:min-w-[412px] w-[250px] h-[55px]',
+          className
         ])}
         {...props}
       />
