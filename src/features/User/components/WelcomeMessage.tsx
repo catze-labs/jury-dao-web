@@ -1,11 +1,12 @@
-import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
 import Button from '@/src/components/Button';
+import { ACCESS_TOKEN_KEY } from '@/src/config/storageKey';
 import { useProfile } from '@/src/requests/auth';
 import { landingState } from '@/src/states/landing';
+import { profileState } from '@/src/states/profile';
 
 interface WelcomeMessageProps {
   pageType: 'signup' | 'login';
@@ -15,6 +16,19 @@ const WelcomeMessage: React.FC<WelcomeMessageProps> = ({ pageType }) => {
   const router = useRouter();
   const setLandingState = useSetRecoilState(landingState);
   const { data } = useProfile();
+
+  const setProfile = useSetRecoilState(profileState);
+
+  useEffect(() => {
+    if (data) {
+      setProfile({
+        email: data.email,
+        name: data.name,
+        token: localStorage.getItem(ACCESS_TOKEN_KEY),
+        twitterHandle: data.twitterHandle,
+      });
+    }
+  }, [data]);
 
   return (
     <div
