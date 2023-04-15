@@ -1,4 +1,3 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Image from 'next/image';
 import React from 'react';
 import { toast } from 'react-toastify';
@@ -6,6 +5,7 @@ import {
   ConnectorAlreadyConnectedError,
   UserRejectedRequestError,
   useConnect,
+  useDisconnect,
 } from 'wagmi';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
@@ -38,8 +38,15 @@ const errorHandler = (error: unknown) => {
 
 const ConnectWallet: React.FC<ConnectWalletProps> = ({ onConnect }) => {
   const { connectAsync } = useConnect();
+  const { disconnectAsync } = useDisconnect();
 
   const onConnectWithMetamask = async () => {
+    try {
+      await disconnectAsync();
+    } catch (e) {
+      // ignore
+    }
+
     try {
       const { account } = await connectAsync({
         connector: new MetaMaskConnector(),
@@ -72,6 +79,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ onConnect }) => {
       </h1>
       <div className="flex flex-col gap-6 w-full">
         <Button
+          type="button"
           variant="primary"
           className="flex justify-between h-[70px]"
           onClick={onConnectWithMetamask}
@@ -94,6 +102,7 @@ const ConnectWallet: React.FC<ConnectWalletProps> = ({ onConnect }) => {
           </span>
         </Button>
         <Button
+          type="button"
           variant="primary"
           className="h-[70px] flex justify-between"
           onClick={onConnectWithWalletConnect}

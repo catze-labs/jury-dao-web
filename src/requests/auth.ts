@@ -49,7 +49,19 @@ export function useAuthAPI() {
     }
   };
 
-  return { nonce, login, fetchProfile };
+  const signup = async (payload: AuthSignupPayload) => {
+    try {
+      const { data } = await client.post<unknown>('/users', payload);
+
+      return data;
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        return Promise.reject(error.response?.data);
+      }
+    }
+  };
+
+  return { nonce, login, fetchProfile, signup };
 }
 
 export function useNonce(walletAddress: string) {
@@ -95,4 +107,21 @@ export function useProfile() {
   });
 
   return { data, error, status };
+}
+
+export function useSignup(
+  onSuccess: (data: unknown) => void,
+  onError: (error: ServerError) => void,
+) {
+  const { signup } = useAuthAPI();
+
+  const { mutate, isLoading, isSuccess } = useMutation(
+    (payload: AuthSignupPayload) => signup(payload),
+    {
+      onError,
+      onSuccess,
+    },
+  );
+
+  return { mutate, isLoading, isSuccess };
 }

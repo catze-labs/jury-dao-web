@@ -45,15 +45,6 @@ const LandingArea: React.FC = () => {
     }
   }, [showLanding]);
 
-  useEffect(() => {
-    if (showLanding) {
-      // prevent scroll body when landing is shown
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }, [showLanding]);
-
   return (
     <div
       className={clsx([
