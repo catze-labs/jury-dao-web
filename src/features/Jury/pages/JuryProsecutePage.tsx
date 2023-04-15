@@ -1,6 +1,7 @@
 import Button from "@/src/components/Button";
 import Input from "@/src/components/Input";
 import Layout from "@/src/components/Layout";
+import WIP from "@/src/components/WIP";
 import { NextPage } from "next";
 import Image from "next/image";
 
@@ -8,8 +9,9 @@ const JuryProsecutePage: NextPage = () => {
   return (
     <Layout
       className="w-full h-[130vh]"
-      mainClassName="flex justify-center items-center bg-primary-300"
+      mainClassName="flex flex-col justify-center items-center bg-primary-300"
     >
+      <WIP />
       <div className="flex flex-col gap-5 justify-center items-center my-[80px]">
         <h1 className="text-[32px] leading-[48px] font-bold text-[#F5F5F5]">Prosecute</h1>
         <div className="flex flex-col gap-10">

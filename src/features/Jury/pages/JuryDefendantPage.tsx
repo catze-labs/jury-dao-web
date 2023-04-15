@@ -1,12 +1,14 @@
 import Button from "@/src/components/Button";
 import Layout from "@/src/components/Layout";
+import WIP from "@/src/components/WIP";
 import { NextPage } from "next";
 import Image from "next/image";
 
 const JuryDefendantPage: NextPage = () => {
   return (
-    <Layout className="bg-primary-300" mainClassName="my-[80px] h-[180vh]">
-      <div className="flex flex-col justify-center items-center gap-10">
+    <Layout className="bg-primary-300" mainClassName="mb-[80px] h-[220vh]">
+      <WIP />
+      <div className="flex flex-col justify-center items-center gap-10 mt-[80px]">
         <div className="flex flex-col gap-[50px]">
           <h1 className="text-[#F5F5F5] text-[32px] leading-[48px] font-bold text-center">Defense</h1>
           <div className="w-[360px] min-h-[734px] rounded-2xl p-5 bg-primary-200 flex flex-col gap-5">
