@@ -17,24 +17,34 @@ const Section3: React.FC<ComponentProps<'article'>> = ({ className }) => {
         height={772}
         alt="garnish"
       />
-      <div className="container flex flex-col xl:flex-row xl:justify-between items-center z-10">
-        <div>
-          <h2 className="text-gradient-type-1  text-center xl:text-left text-[30px] xl:text-[70px] font-bold xl:w-fit w-full leading-tight tracking-tight">
-            A Fair Chance <br />
-            for All Gamers
-          </h2>
+      <div className="container flex flex-col gap-6 xl:gap-0 xl:flex-row justify-between items-center">
+        <div className="container flex flex-col xl:flex-row xl:justify-between items-center z-10">
+          <div>
+            <h2 className="text-gradient-type-1  text-center xl:text-left text-[30px] xl:text-[70px] font-bold xl:w-fit w-full leading-tight tracking-tight">
+              A Fair Chance <br />
+              for All Gamers
+            </h2>
 
-          <p className="w-full xl:w-[440px] mt-6 xl:mt-10 text-primary-default text-sm tracking-tight">
-            JuryDAO provides a community-driven approach to combating cheating,
-            trolling, and abuse in online games. By using decentralized
-            governance, it establishes a fair and transparent system that
-            penalizes wrongdoings and prevents fraudulent activities. <br />
-            <br />
-            We aim to provide a robust and reliable solution for addressing
-            misconducts on digital platforms based on our expertise-based jury
-            selection.
-          </p>
+            <p className="w-full xl:w-[440px] mt-6 xl:mt-10 text-primary-default text-sm tracking-tight">
+              JuryDAO provides a community-driven approach to combating
+              cheating, trolling, and abuse in online games. By using
+              decentralized governance, it establishes a fair and transparent
+              system that penalizes wrongdoings and prevents fraudulent
+              activities. <br />
+              <br />
+              We aim to provide a robust and reliable solution for addressing
+              misconducts on digital platforms based on our expertise-based jury
+              selection.
+            </p>
+          </div>
         </div>
+        <Image
+          src="/assets/landing/character.png"
+          className="relative z-10 w-[226px] xl:w-auto"
+          width={452}
+          height={528}
+          alt="Character"
+        />
       </div>
     </article>
   );

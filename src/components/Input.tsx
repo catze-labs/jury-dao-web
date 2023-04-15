@@ -1,9 +1,9 @@
-import React, { ComponentPropsWithRef } from 'react';
 import clsx from 'clsx';
+import React, { ComponentPropsWithRef } from 'react';
 
 export interface InputProps extends ComponentPropsWithRef<'input'> {
-  variant?: 'form' | 'comment',
-  label?: string
+  variant?: 'form' | 'comment';
+  label?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -14,11 +14,17 @@ const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   return (
-    <label className={`flex flex-col ${variant === 'comment' ? 'gap-[10px]' : 'gap-[5px]'}`}>
-      <span className={clsx([
-        variant === 'comment' && 'text-[#092F5C] font-medium text-sm',
-        variant === 'form' && 'text-[#F5F5F5] font-medium text-sm'
-      ])}>
+    <label
+      className={`flex flex-col ${
+        variant === 'comment' ? 'gap-[10px]' : 'gap-[5px]'
+      }`}
+    >
+      <span
+        className={clsx([
+          variant === 'comment' && 'text-[#092F5C] font-medium text-sm',
+          variant === 'form' && 'text-[#F5F5F5] font-medium text-sm',
+        ])}
+      >
         {variant === 'comment' ? '*Comment' : label}
       </span>
       <input
@@ -31,8 +37,7 @@ const Input: React.FC<InputProps> = ({
         {...props}
       />
     </label>
-
   );
-}
+};
 
 export default Input;

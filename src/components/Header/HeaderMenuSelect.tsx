@@ -28,6 +28,10 @@ const HeaderMenuSelect: React.FC = () => {
       title: 'Public Cases',
       path: '/case/public',
     },
+    {
+      title: 'Logout',
+      path: '/logout',
+    },
   ];
 
   return (

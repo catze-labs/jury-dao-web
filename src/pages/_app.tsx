@@ -4,12 +4,16 @@ import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import type { AppProps } from 'next/app';
 import { Poppins } from 'next/font/google';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ToastContainer } from 'react-toastify';
 import { RecoilRoot } from 'recoil';
 import { WagmiConfig } from 'wagmi';
 
+import 'react-toastify/dist/ReactToastify.css';
 import '@rainbow-me/rainbowkit/styles.css';
 
 import { chains, wagmiClient } from '@/src/config/rainbow';
+
+import { mantletestnet } from '../config/chain';
 
 const PoppinsFont = Poppins({
   subsets: ['latin'],
@@ -32,7 +36,8 @@ function App({ Component, pageProps }: AppProps) {
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
           <WagmiConfig client={wagmiClient}>
-            <RainbowKitProvider chains={chains}>
+            <RainbowKitProvider chains={chains} initialChain={mantletestnet}>
+              <ToastContainer />
               <Component {...pageProps} />
             </RainbowKitProvider>
           </WagmiConfig>

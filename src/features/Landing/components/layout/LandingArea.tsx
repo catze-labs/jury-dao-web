@@ -17,8 +17,6 @@ const LandingArea: React.FC = () => {
   const scrollRef = React.useRef<HTMLDivElement>(null);
   const [showLanding, setShowLanding] = useRecoilState(landingState);
 
-  console.log('showLanding', showLanding);
-
   const [didScrollDown, setDidScrollDown] = useState<boolean>(false);
   const [didScrolltoBottom, setDidScrolltoBottom] = useState<boolean>(false);
 
@@ -44,15 +42,6 @@ const LandingArea: React.FC = () => {
       } else {
         setDidScrolltoBottom(false);
       }
-    }
-  }, [showLanding]);
-
-  useEffect(() => {
-    if (showLanding) {
-      // prevent scroll body when landing is shown
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
     }
   }, [showLanding]);
 
