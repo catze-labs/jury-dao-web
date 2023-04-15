@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { useAccount } from 'wagmi';
+import { useAccount, useDisconnect } from 'wagmi';
 import * as Yup from 'yup';
 
 import { useSignup } from '@/src/requests/auth';
@@ -31,11 +31,13 @@ const signupScheme = Yup.object({
 const SignupPage: NextPage = () => {
   const router = useRouter();
   const [phase, setPhase] = useState<number>(0);
+  const { disconnect } = useDisconnect();
 
   const { mutate, isLoading } = useSignup(
     (data) => {
       toast.success('Signed up successfully');
       router.push('/login');
+      disconnect();
     },
     (error) => {
       toast.error(error.message);
