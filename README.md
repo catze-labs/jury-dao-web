@@ -1,18 +1,40 @@
-# next-tailwind-recoil-template
+![image](https://user-images.githubusercontent.com/65929678/232244423-20b3e899-92b7-4b3e-8fbe-3c31ba2b5055.png)
 
-This is for template repository for using below.
+# Jury DAO Front-end
 
-## 1. Library
+> This is the buidle of [ETHGlobal Tokyo 2023](https://ethglobal.com/events/tokyo).
+
+## What is Jury DAO?
+
+[Checkout the information](https://github.com/catze-labs/jury-dao-info)
+
+JuryDAO is a decentralized autonomous organization (DAO) that aims to provide a decentralized dispute resolution system on the blockchain. It allows users to create and vote on cases, stake tokens as collateral, and engage in a transparent and decentralized decision-making process.
+
+
+## Main Features
+
+- Case creation: Users can create new dispute resolution cases by submitting a title, description, and stake amount.
+- Case voting: Users can vote on cases by staking their JRY tokens and indicating their decision.
+- Jury selection: The DAO selects a randomly chosen jury from the community members to vote on each case.
+- Transparent decision-making: All decisions and votes are recorded on the blockchain and can be audited for transparency.
+- Reward system: Users who participate in the dispute resolution process as jurors are rewarded with JRY tokens as an incentive.
+- Staking and unstaking: Users can stake and unstake their JRY tokens as collateral for cases, and the tokens are locked during the resolution process.
+
+
+## Project Detail
+
+### 1. Library
 
 - React18
-- Next.js : 12.3.1
+- Next.js : 13.2.4
 - Tailwind.css (with `clsx`)
 - Recoil
 - Axios
 - React-Query v3
 - Stroybook
+- Wagmi + Rainbow Kit
 
-## 2. Structures
+### 2. Structures
 
 Feature based file system with concerns of serverless paradigm.
 
@@ -40,11 +62,3 @@ src/
       ├─ services.ts # logics, process entity...
       └─ controllers.ts # Controller
 ```
-
-## 3. Types
-
-Global type for window (For using web3 third-party method; Such as Klaytn, Metamask, etc)
-
-## 4. Etc
-
-- [herosicon](https://heroicons.com/) : useful icons
