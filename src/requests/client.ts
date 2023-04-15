@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const client = axios.create({
-  // baseURL: "",
+  baseURL: 'https://jury-dao-dev.by-catze.xyz',
   // headers: {},
 });
 
