@@ -1,18 +1,21 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import React, { ComponentPropsWithRef } from 'react';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import Logo from '@/src/components/Logo';
 import { landingState } from '@/src/states/landing';
+import { profileState } from '@/src/states/profile';
 
+import NoSSR from '../NoSSR';
 import HeaderMenuSelect from './HeaderMenuSelect';
 import HeaderUserInfo from './UserInfo';
 
-interface HeaderProps extends ComponentPropsWithRef<'nav'> { }
+interface HeaderProps extends ComponentPropsWithRef<'nav'> {}
 
 const Header: React.FC<HeaderProps> = ({ className, ...props }) => {
   const setLandingState = useSetRecoilState(landingState);
+  const profile = useRecoilValue(profileState);
 
   return (
     <nav
@@ -27,15 +30,10 @@ const Header: React.FC<HeaderProps> = ({ className, ...props }) => {
         <Logo />
       </Link>
       <div className="flex items-center gap-0">
-        <div
-          // TODO: remove when login is implemented
-          className="mr-2"
-        >
+        <div>
           <HeaderUserInfo />
         </div>
-        <div>
-          <HeaderMenuSelect />
-        </div>
+        <NoSSR>{profile.token && <HeaderMenuSelect />}</NoSSR>
       </div>
     </nav>
   );
