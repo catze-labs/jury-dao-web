@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useAccount, useDisconnect, useNetwork } from 'wagmi';
 
+import Layout from '@/src/components/Layout';
 import { mantletestnet } from '@/src/config/chain';
 import { ACCESS_TOKEN_KEY } from '@/src/config/storageKey';
 import { useLogin } from '@/src/requests/auth';
@@ -39,23 +40,27 @@ const LoginPage: NextPage = () => {
   }
 
   return (
-    <div className="w-full min-h-screen bg-primary-400 flex flex-col justify-center items-center">
-      <h1 className="text-[32px] leading-[48px] font-bold text-white">Login</h1>
-      {!isSuccess && !isConnected && (
-        <ConnectWallet onConnect={(address) => {}} />
-      )}
-      {!isSuccess && isConnected && unsupportedChain && <ChainWarning />}
-      {!isSuccess && isConnected && !unsupportedChain && (
-        <Signing
-          onSign={(signature) => {
-            login({ walletAddress: address as string, signature });
-          }}
-          onDecline={() => {
-            toast.error('You declined the signature');
-          }}
-        />
-      )}
-    </div>
+    <Layout>
+      <div className="w-full min-h-screen bg-primary-400 flex flex-col justify-center items-center">
+        <h1 className="text-[32px] leading-[48px] font-bold text-white">
+          Login
+        </h1>
+        {!isSuccess && !isConnected && (
+          <ConnectWallet onConnect={(address) => {}} />
+        )}
+        {!isSuccess && isConnected && unsupportedChain && <ChainWarning />}
+        {!isSuccess && isConnected && !unsupportedChain && (
+          <Signing
+            onSign={(signature) => {
+              login({ walletAddress: address as string, signature });
+            }}
+            onDecline={() => {
+              toast.error('You declined the signature');
+            }}
+          />
+        )}
+      </div>
+    </Layout>
   );
 };
 

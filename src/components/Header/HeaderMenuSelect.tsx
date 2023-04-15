@@ -13,20 +13,24 @@ const HeaderMenuSelect: React.FC = () => {
 
   const menuList = [
     {
-      title: 'Dashboard',
+      title: 'Dashboard (WIP)',
       path: '/',
     },
     {
-      title: 'My Cases',
+      title: 'My Cases (WIP)',
       path: '/case/mine',
     },
     {
-      title: 'Prosecute',
+      title: 'Prosecute (WIP)',
       path: '/prosecute',
     },
     {
-      title: 'Public Cases',
+      title: 'Public Cases (WIP)',
       path: '/case/public',
+    },
+    {
+      title: 'Defense (WIP)',
+      path: '/defense',
     },
     {
       title: 'Logout',
@@ -52,7 +56,7 @@ const HeaderMenuSelect: React.FC = () => {
             <Link
               href={item.path}
               className={clsx([
-                'h-10 w-36 flex items-center px-4 text-sm text-white cursor-pointer',
+                'h-10 w-44 flex items-center px-4 text-sm text-white cursor-pointer',
                 router.pathname === item.path &&
                   'bg-primary-300 group-first:rounded-t-2xl group-last:rounded-b-2xl',
                 router.pathname !== item.path &&

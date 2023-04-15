@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { useAccount, useDisconnect } from 'wagmi';
 import * as Yup from 'yup';
 
+import Layout from '@/src/components/Layout';
 import { useSignup } from '@/src/requests/auth';
 
 import ConnectWallet from '../components/ConnectWallet';
@@ -65,40 +66,42 @@ const SignupPage: NextPage = () => {
   };
 
   return (
-    <div className="w-full h-[120vh] bg-primary-300 flex justify-center items-center">
-      <div className="w-[412px] h-[490px] flex flex-col">
-        <div className="flex flex-col gap-10">
-          <h1 className="text-white font-bold text-[32px] leading-[48px] text-center">
-            Sign up
-          </h1>
-          <PhaseCircle phase={phase} />
-        </div>
+    <Layout>
+      <div className="w-full h-[120vh] bg-primary-300 flex justify-center items-center">
+        <div className="w-[412px] h-[490px] flex flex-col">
+          <div className="flex flex-col gap-10">
+            <h1 className="text-white font-bold text-[32px] leading-[48px] text-center">
+              Sign up
+            </h1>
+            <PhaseCircle phase={phase} />
+          </div>
 
-        <form
-          className="flex justify-center items-center"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          {phase === Phase.Wallet && (
-            <ConnectWallet
-              onConnect={(address) => {
-                setPhase(Phase.Signing);
-              }}
-            />
-          )}
-          {phase === Phase.Signing && (
-            <Signing
-              onSign={(signature) => {
-                if (signature) {
-                  setPhase(Phase.Info);
-                  setValue('signature', signature);
-                }
-              }}
-            />
-          )}
-          {phase === Phase.Info && <SignupForm setValue={setValue} />}
-        </form>
+          <form
+            className="flex justify-center items-center"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            {phase === Phase.Wallet && (
+              <ConnectWallet
+                onConnect={(address) => {
+                  setPhase(Phase.Signing);
+                }}
+              />
+            )}
+            {phase === Phase.Signing && (
+              <Signing
+                onSign={(signature) => {
+                  if (signature) {
+                    setPhase(Phase.Info);
+                    setValue('signature', signature);
+                  }
+                }}
+              />
+            )}
+            {phase === Phase.Info && <SignupForm setValue={setValue} />}
+          </form>
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 
