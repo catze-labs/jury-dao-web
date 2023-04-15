@@ -62,3 +62,8 @@ src/
       ├─ services.ts # logics, process entity...
       └─ controllers.ts # Controller
 ```
+
+## Wallet integration
+
+- Metamask
+- Wallet Connect
