@@ -63,7 +63,7 @@ src/
       └─ controllers.ts # Controller
 ```
 
-## Wallet integration
+## 3. Wallet integration
 
 - Metamask
 - Wallet Connect
