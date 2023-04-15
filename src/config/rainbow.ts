@@ -3,51 +3,20 @@ import {
   metaMaskWallet,
   walletConnectWallet,
 } from '@rainbow-me/rainbowkit/wallets';
-import { Chain, configureChains, createClient } from 'wagmi';
-import { goerli, mainnet, polygon } from 'wagmi/chains';
+import { configureChains, createClient } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
 
-const klaytnBaobabChain: Chain = {
-  id: 1001,
-  name: 'Klaytn Baobab Testnet',
-  network: 'klaytn',
-  nativeCurrency: {
-    name: 'KLAY',
-    symbol: 'KLAY',
-    decimals: 18,
-  },
-  rpcUrls: {
-    default: {
-      http: ['https://api.baobab.klaytn.net:8651'],
-    },
-  },
-  blockExplorers: {
-    default: {
-      name: 'Klaytnscope',
-      url: 'https://baobab.scope.klaytn.com',
-    },
-    klaytnScope: {
-      name: 'Klaytnscope',
-      url: 'https://baobab.scope.klaytn.com',
-    },
-  },
-  testnet: true,
-};
+import { mantletestnet } from './chain';
 
 const { chains, provider } = configureChains(
-  [mainnet, goerli, polygon, klaytnBaobabChain],
+  [mantletestnet],
   [publicProvider()],
 );
 
 const connectors = connectorsForWallets([
   {
-    groupName: 'Recommended',
-    wallets: [
-      //   injectedWallet({ chains }),
-      metaMaskWallet({ chains }),
-      //   coinbaseWallet({ chains, appName: "Test" }),
-      walletConnectWallet({ chains }),
-    ],
+    groupName: 'Supported',
+    wallets: [metaMaskWallet({ chains }), walletConnectWallet({ chains })],
   },
 ]);
 
