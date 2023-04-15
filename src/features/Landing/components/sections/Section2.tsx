@@ -7,18 +7,30 @@ const Section2: React.FC<ComponentProps<'article'>> = ({ className }) => {
     {
       title: 'Proactive Fraud Detection',
       image: '/assets/landing/ballot.png',
+      size: {
+        width: 107,
+        height: 107,
+      },
       description:
         'Proactively identify and address potential fraudulent activities in advance',
     },
     {
       title: 'Decentralized Governance',
       image: '/assets/landing/coin.png',
+      size: {
+        width: 98,
+        height: 107,
+      },
       description:
         'Governed by decentralized jury community members ensuring transparency and avoiding centralization',
     },
     {
       title: 'Fair and Transparent System',
       image: '/assets/landing/scale.png',
+      size: {
+        width: 107,
+        height: 107,
+      },
       description:
         'Aims to provide a fair and transparent mechanism for addressing misconducts',
     },
@@ -45,8 +57,8 @@ const Section2: React.FC<ComponentProps<'article'>> = ({ className }) => {
                 <Image
                   src={feature.image}
                   alt={feature.title}
-                  width={107}
-                  height={107}
+                  width={feature.size.width}
+                  height={feature.size.height}
                 />
               </div>
 

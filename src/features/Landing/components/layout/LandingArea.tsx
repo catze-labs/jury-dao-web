@@ -17,8 +17,6 @@ const LandingArea: React.FC = () => {
   const scrollRef = React.useRef<HTMLDivElement>(null);
   const [showLanding, setShowLanding] = useRecoilState(landingState);
 
-  console.log('showLanding', showLanding);
-
   const [didScrollDown, setDidScrollDown] = useState<boolean>(false);
   const [didScrolltoBottom, setDidScrolltoBottom] = useState<boolean>(false);
 
