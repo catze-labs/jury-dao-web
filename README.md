@@ -4,6 +4,8 @@
 
 > This is the buidle of [ETHGlobal Tokyo 2023](https://ethglobal.com/events/tokyo).
 
+> We are still working on it!
+
 ## What is Jury DAO?
 
 [Checkout the information](https://github.com/catze-labs/jury-dao-info)
