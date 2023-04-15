@@ -14,15 +14,14 @@ const Logout: NextPage = () => {
   const router = useRouter();
   const setProfile = useSetRecoilState(profileState);
 
-  localStorage.removeItem(ACCESS_TOKEN_KEY);
-  setProfile({
-    email: '',
-    name: '',
-    token: '',
-    twitterHandle: '',
-  });
-
   useEffect(() => {
+    localStorage.removeItem(ACCESS_TOKEN_KEY);
+    setProfile({
+      email: '',
+      name: '',
+      token: '',
+      twitterHandle: '',
+    });
     toast.success('You have been logged out successfully', {
       toastId: 'logout',
     });
