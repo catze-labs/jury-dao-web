@@ -8,7 +8,6 @@ import Section1 from '@/src/features/Landing/components/sections/Section1';
 import Section2 from '@/src/features/Landing/components/sections/Section2';
 import Section3 from '@/src/features/Landing/components/sections/Section3';
 import Section4 from '@/src/features/Landing/components/sections/Section4';
-import Section5 from '@/src/features/Landing/components/sections/Section5';
 import Section6 from '@/src/features/Landing/components/sections/Section6';
 import Section7 from '@/src/features/Landing/components/sections/Section7';
 import { landingState } from '@/src/states/landing';
@@ -66,7 +65,6 @@ const LandingArea: React.FC = () => {
         <Section2 className="snap-center" />
         <Section3 className="snap-center" />
         <Section4 className="snap-center" />
-        <Section5 className="snap-center" />
         <Section6 className="snap-center" />
         <Section7 className="snap-end" />
       </section>
